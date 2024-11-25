@@ -37,7 +37,7 @@ local function createWebhookData()
     local jobIdLink = "https://www.roblox.com/games/" .. game.PlaceId .. "?jobId=" .. game.JobId
 
     local data = {
-        username = "AKs Execution Logger",
+        username = "AKs",
         avatar_url = "https://i.imgur.com/AfFp7pu.png",
         embeds = {
             {
@@ -2160,7 +2160,7 @@ end)
  
  --// Game
  do
-     gameTab:addSlider({text = "fps cap:", min = 0, max = 999, suffix = "fps", float = 1, default = 999, flag = "fpscap_slider",callback = function(Value)
+     gameTab:addSlider({text = "fps cap:", min = 0, max = 9999, suffix = "fps", float = 1, default = 9999, flag = "fpscap_slider",callback = function(Value)
          setfpscap(Value)
      end})
      gameTab:addButton({text = "copy join code",callback = function(Value)
