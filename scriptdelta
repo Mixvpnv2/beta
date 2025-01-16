@@ -6,7 +6,7 @@ SoundService.AmbientReverb = Enum.ReverbType.Cave
 -- Example: Play a sound globally
 local sound = Instance.new("Sound")
 sound.SoundId = "rbxassetid://180315285" -- Replace with a valid sound asset ID
-sound.Volume = 0.9
+sound.Volume = 0.4
 sound.Looped = false
 sound.Parent = SoundService
 sound:Play()
