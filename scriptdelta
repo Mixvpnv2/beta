@@ -1637,7 +1637,7 @@ end)
 	return CFrame.new(_CFrame.Position) * CFrame.Angles(0, Y, 0)
  end
  local OriginalAutoRotate = localplayer.Character and localplayer.Character:FindFirstChildOfClass("Humanoid") and
- localplayer.Character:FindFirstChildOfClass("Humanoid").AutoRotate or true
+  localplayer.Character:FindFirstChildOfClass("Humanoid").AutoRotate or true
 
  function functions:spin()
     camera = game:GetService("Workspace").CurrentCamera
@@ -1677,36 +1677,6 @@ end)
     end
  end
  camera.ChildAdded:Connect(chams_pos)
-
- --// Prediction Function
- function functions:MovementPrediction(Origin, Destination, DestinationVelocity, ProjectileSpeed)
-    local Distance = (Destination - Origin).Magnitude
-    local TimeToHit = (Distance / ProjectileSpeed)
-    local Predicted = Destination + DestinationVelocity * TimeToHit
-    local Delta = (Predicted - Origin).Magnitude / ProjectileSpeed
-    
-    ProjectileSpeed = ProjectileSpeed - 0.013 * ProjectileSpeed ^ 2 * TimeToHit ^ 2
-    TimeToHit += (Delta / ProjectileSpeed);
-
-    local Actual = Destination + DestinationVelocity * TimeToHit
-    return Actual
- end
-
- --// BulletDrop prediction
- function functions:Trajectory(Origin, Destination, ProjectileSpeed, ProjectileDrop)
-    local Distance = (Destination - Origin).Magnitude
-    local TimeToHit = (Distance / ProjectileSpeed)
-    local ProperSpeed = ProjectileSpeed - 0.013 * ProjectileSpeed ^ 2 * TimeToHit ^ 2
-    TimeToHit += (Distance / ProperSpeed)
-    
-    local DropTime = ProjectileDrop * TimeToHit ^ 2
-    if tostring(DropTime):find("nan") or (Distance <= 100) then
-        return 0 
-    end
-    return DropTime;
-end
-
---// Silent aim
  --// Arm & Gun Chams
 
  local function wrap(f) coroutine.resume(coroutine.create(f)) end
